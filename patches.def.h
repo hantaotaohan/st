@@ -246,16 +246,6 @@
  */
 #define OPENURLONCLICK_PATCH 0
 
-/* This patch adds support for OSC escape sequences 10, 11 and 12 that modify the background,
- * foreground and cursor colors in the way they are implemented in most other terminals
- * (e.g libvte, kitty). Specifically it differs from https://st.suckless.org/patches/osc_10_11_12/
- * in that it treats the background and foreground colors as distinct from palette colours
- * 01 and 07 in order to facilitate the use of theme setting scripts like theme.sh
- * (https://github.com/lemnos/theme.sh) which expect these colours to be distinct.
- * https://st.suckless.org/patches/osc_10_11_12_2/
- */
-#define OSC_10_11_12_2_PATCH 0
-
 /* This patch allows you to specify a border that is relative in size to the width of a cell
  * in the terminal.
  * https://st.suckless.org/patches/relativeborder/
@@ -298,13 +288,9 @@
  *      not specific to this variant of st - the same issue is present in
  *      the xterm implementation. This is likely an issue of sixel height
  *      not being detected correctly.
- *    - If combined with the alpha patch sixel graphics disappear (become white)
- *      when transparent and rendered against a white background. This is believed
- *      to be related to how the sixel graphics use RGB colors instead of RGBA.
- *      A pull request or instructions for how to properly add alpha support for
- *      sixel graphics would be very welcome.
  *
  * Note that you need to uncomment the corresponding lines in config.mk when including this patch.
+ * This patch is incompatible with the W3M patch.
  *
  * https://gist.github.com/saitoha/70e0fdf22e3e8f63ce937c7f7da71809
  */
